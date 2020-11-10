@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const App = ({questions, answers}) => (
+export const App = ({questions, answers, handleAnswerModifyVotes}) => (
      <div>
         <h1>
             Q&A Tool
@@ -19,7 +19,8 @@ export const App = ({questions, answers}) => (
                            <span>
                                {content} - {upvotes}
                            </span>
-
+                        <button onClick={() => handleAnswerModifyVotes(answerId, 1)}> + </button>
+                        <button onClick={() => handleAnswerModifyVotes(answerId, -1)}> - </button>
                        </div>
                    )
                )}

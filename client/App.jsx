@@ -6,12 +6,25 @@ export const App = ({questions, answers}) => (
             Q&A Tool
         </h1>                   
     
-     {questions.map(({questions, content}) => (
-         <div>
+     {questions.map(({questionId, content}) => (
+         <div key={questionId}> 
             <h3>
                 {content}
             </h3>
-         </div>
+            <div>
+               {answers.filter(answer => answer.questionId === questionId).map(
+                   ({content, upvotes, answerId})=>(
+                       <div key={answerId}>
+
+                           <span>
+                               {content} - {upvotes}
+                           </span>
+
+                       </div>
+                   )
+               )}
+            </div>
+        </div>
      ))}
     </div>
 )
